@@ -44,9 +44,10 @@ var UserSchema  = new mongoose.Schema({
       }]
 });
 
+// Overwrite Method for mongoose to handle; What mongoose value convert to JSON value;
 UserSchema.methods.toJSON = function () {
     var user        = this;
-    var userObject  = user.toObject();    // Convert to Object;
+    var userObject  = user.toObject();    // Mongoose variable convert to Object;
 
     return _.pick(userObject, ['_id', 'email']);
 };
